@@ -1,0 +1,40 @@
+{
+    "types": [
+        {
+            "id": 0,
+            "category": 0,
+            "name": "Bottle Rockets/Roman Candles",
+            "description": "The good stuff...only for use after at least 6 beers"
+        },
+        {
+            "id": 1,
+            "category": 0,
+            "name": "Big boys",
+            "description": "These aren't for the faint of heart...They make big booms"
+        },
+        {
+            "id": 2,
+            "category": 0,
+            "name": "Sparklers/Snap pops etc.",
+            "description": "Must be under 12 to purchase without ridicule"
+        },
+        {
+            "id": 3,
+            "category": 1,
+            "name": "TNT",
+            "description": "DYNOMITE!!!!"
+        },
+        {
+            "id": 4,
+            "category": 1,
+            "name": "Bombs",
+            "description": "Good for bug extermination etc."
+        },
+        {
+            "id": 5,
+            "category": 1,
+            "name": "Missles",
+            "description": "For the occasion when you really wanna mess something up"
+        }
+    ]
+}

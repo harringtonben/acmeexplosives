@@ -1,22 +1,22 @@
 {
     "products": [{
-        "fairy_sparklers": {
-            "id": 2,
+        "bottle_rocket": {
+            "id": 0,
             "type": 0,
-            "name": "Fairy Sparklers",
-            "description": "Multi-colored sparklers that are safe for any age."
+            "name": "Bottle Rocket",
+            "description": "Standard get drunk and shoot at your friends kind of firework"
         },
-        "sissy_snaps": {
-            "id": 2,
+        "roman_candle": {
+            "id": 0,
             "type": 0,
-            "name": "Sissy Snaps",
-            "description": "Those things you throw at the ground that kind of suck"
+            "name": "Roman Candle",
+            "description": "Loud, obnoxious, fun to shoot at other people"
         },
-        "trick_sparklers": {
-            "id": 2,
+        "python": {
+            "id": 0,
             "type": 0,
-            "name": "Trick Sparklers",
-            "description": "Sparklers that don't stop working until they burn you alive"
+            "name": "Python",
+            "description": "loud, fast and full of fire explosion that is always enjoyable"
         },
         "mr_usa": {
             "id": 1,
@@ -36,23 +36,77 @@
             "name": "Alabama Slamma",
             "description": "Creates a trifecta act of the Father, the Son and the holy Saban"
         },
-        "bottle_rocket": {
-            "id": 0,
+        "fairy_sparklers": {
+            "id": 2,
             "type": 0,
-            "name": "Bottle Rocket",
-            "description": "Standard get drunk and shoot at your friends kind of firework"
+            "name": "Fairy Sparklers",
+            "description": "Multi-colored sparklers that are safe for any age."
         },
-        "roman_candle": {
-            "id": 0,
+        "sissy_snaps": {
+            "id": 2,
             "type": 0,
-            "name": "Roman Candle",
-            "description": "Loud, obnoxious, fun to shoot at other people"
+            "name": "Sissy Snaps",
+            "description": "Those things you throw at the ground that kind of suck"
         },
-        "python": {
-            "id": 0,
+        "trick_sparklers": {
+            "id": 2,
             "type": 0,
-            "name": "Python",
-            "description": "loud, fast and full of fire explosion that is always enjoyable"
+            "name": "Trick Sparklers",
+            "description": "Sparklers that don't stop working until they burn you alive"
+        },
+        "dynomite_stick": {
+            "id": 3,
+            "type": 1,
+            "name": "Dynomite Stick",
+            "description": "Classic blow up a bridge in a western movie dynomite"
+        },
+        "tnt_brick": {
+            "id": 3,
+            "type": 1,
+            "name": "TNT Brick",
+            "description": "Overall good stuff for blowing shit up"
+        },
+        "cartoon_tnt": {
+            "id": 3,
+            "type": 1,
+            "name": "Cartoon TNT",
+            "description": "As seen in the roadrunner cartoon"
+        },
+        "atom_bomb": {
+            "id": 4,
+            "type": 1,
+            "name": "Atom Bomb",
+            "description": "Need to end a war? This'll do it"
+        },
+        "nuke": {
+            "id": 4,
+            "type": 1,
+            "name": "Nuke",
+            "description": "Who wants to live anymore anyways?"
+        },
+        "grenade": {
+            "id": 4,
+            "type": 1,
+            "name": "Grenade",
+            "description": "Classic hand help destruction"
+        },
+        "tomahawk": {
+            "id": 5,
+            "type": 1,
+            "name": "Tomahawk Missle",
+            "description": "self explanitory, blows shit up"
+        },
+        "fake": {
+            "id": 5,
+            "type": 1,
+            "name": "Fake Missle",
+            "description": "When you just wanna make someone poo a little bit"
+        },
+        "confetti": {
+            "id": 5,
+            "type": 1,
+            "name": "Confetti Missle",
+            "description": "A pure party on explosion"
         }
     }]
 }

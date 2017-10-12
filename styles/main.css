@@ -1,3 +1,11 @@
 body {
     background-image: url(https://images2.alphacoders.com/434/434077.jpg);
 }
+
+.container {
+    text-align: center;
+}
+
+#heading {
+    text-align: center;
+}

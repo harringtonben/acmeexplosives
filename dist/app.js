@@ -6,9 +6,9 @@ let products = [];
 const loadCategoriesJSON = () => {
     return new Promise((resolve, reject) => {
        $.ajax("./db/categories.json").done((data) => {
-            console.log(data.categories);
+            resolve(data.categories);
        }).fail((error) => {
-            console.log(error);
+            reject(error);
        }); 
     });
 };
@@ -16,9 +16,9 @@ const loadCategoriesJSON = () => {
 const loadTypesJSON = () => {
     return new Promise((resolve, reject) => {
         $.ajax("./db/types.json").done((data) => {
-            console.log(data.types);
+            resolve(data.types);
         }).fail((error) => {
-            console.log(error);
+            reject(error);
         });
     });
 };
@@ -26,14 +26,39 @@ const loadTypesJSON = () => {
 const loadProductsJSON = () => {
     return new Promise((resolve, reject) => {
         $.ajax("./db/products.json").done((data) => {
-            console.log(data.products);
+            resolve(data.products);
         }).fail((error) => {
-            console.log(error);
+            reject(error);
         });
     });
 };
 
-module.exports = {loadCategoriesJSON, loadTypesJSON, loadProductsJSON};
+const productGetter = () => {
+    loadProductsJSON().then((productResults) => {
+        let productObject;
+        for (let i = 0; i < productResults.length; i++) {
+            productObject = productResults[i];
+        }
+        for (let prop in productObject) {
+           products.push(productObject[prop]);
+        }
+        console.log("products on their own", products);
+        return loadCategoriesJSON();
+    }).then(() => {
+        loadCategoriesJSON().then((categoryResults) => {
+            products.forEach((product) => {
+                categoryResults.forEach((category) => {
+                        if (category.id === product.type) {
+                            category.name = product.category;
+                        }
+                });
+            });
+            console.log("products with categories", products);
+        });
+    });
+};
+
+module.exports = productGetter;
 },{}],2:[function(require,module,exports){
 "use strict";
 
@@ -41,7 +66,5 @@ console.log("I'm in main js");
 
 const data = require("./data");
 
-data.loadCategoriesJSON();
-data.loadTypesJSON();
-data.loadProductsJSON();
+data();
 },{"./data":1}]},{},[2]);

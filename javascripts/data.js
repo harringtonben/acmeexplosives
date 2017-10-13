@@ -1,6 +1,6 @@
 "use strict";
+const dom = require("./dom");
 
-let products = [];
 
 const loadCategoriesJSON = () => {
     return new Promise((resolve, reject) => {
@@ -32,7 +32,8 @@ const loadProductsJSON = () => {
     });
 };
 
-const dataFetcher = () => {
+const dataFetcher = (dropdown) => {
+    let products = [];
     loadProductsJSON().then((productResults) => {
         let productObject;
         for (let i = 0; i < productResults.length; i++) {
@@ -41,7 +42,6 @@ const dataFetcher = () => {
         for (let prop in productObject) {
            products.push(productObject[prop]);
         }
-        console.log("products on their own", products);
         return loadCategoriesJSON();
     }).then(() => {
         loadCategoriesJSON().then((categoryResults) => {
@@ -52,7 +52,6 @@ const dataFetcher = () => {
                         }
                 });
             });
-            console.log("products with categories", products);
         });
     }).then(() => {
         loadTypesJSON().then((typeResults) => {
@@ -64,13 +63,10 @@ const dataFetcher = () => {
                     }
                 });
             });
-            console.log("products with categories and types", products);
+            dom(products, dropdown);
         });
     });
 };
 
-const getProductArray = () => {
-    return products;
-};
 
-module.exports = {dataFetcher, getProductArray};
+module.exports = dataFetcher;

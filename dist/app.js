@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
+const dom = require("./dom");
 
-let products = [];
 
 const loadCategoriesJSON = () => {
     return new Promise((resolve, reject) => {
@@ -33,7 +33,8 @@ const loadProductsJSON = () => {
     });
 };
 
-const dataFetcher = () => {
+const dataFetcher = (dropdown) => {
+    let products = [];
     loadProductsJSON().then((productResults) => {
         let productObject;
         for (let i = 0; i < productResults.length; i++) {
@@ -42,7 +43,6 @@ const dataFetcher = () => {
         for (let prop in productObject) {
            products.push(productObject[prop]);
         }
-        console.log("products on their own", products);
         return loadCategoriesJSON();
     }).then(() => {
         loadCategoriesJSON().then((categoryResults) => {
@@ -53,7 +53,6 @@ const dataFetcher = () => {
                         }
                 });
             });
-            console.log("products with categories", products);
         });
     }).then(() => {
         loadTypesJSON().then((typeResults) => {
@@ -65,22 +64,54 @@ const dataFetcher = () => {
                     }
                 });
             });
-            console.log("products with categories and types", products);
+            dom(products, dropdown);
         });
     });
 };
 
-const getProductArray = () => {
-    return products;
-};
 
-module.exports = {dataFetcher, getProductArray};
-},{}],2:[function(require,module,exports){
+module.exports = dataFetcher;
+},{"./dom":2}],2:[function(require,module,exports){
 "use strict";
 
-console.log("I'm in main js");
+const domString = (productArray, category) => {
+    let printString = '';
+    productArray.forEach((product) => {
+        if (category === product.category) {
+            printString += `<div class="col-md-4" id="productCard">
+                                <h3>${product.name}</h3>
+                                <h4>${product.category}</h4>
+                                <p>${product.type}</p>
+                                <p>${product.description}</p>
+                            </div>`;
+        }
+    });
+   printToDom(printString);
+};
+
+const printToDom = (strang) => {
+    $("#productDiv").html(strang);
+    $(".container").addClass("product-display");
+};
+
+module.exports = domString;
+},{}],3:[function(require,module,exports){
+"use strict";
 
 const data = require("./data");
 
-data.dataFetcher();
-},{"./data":1}]},{},[2]);
+$("#fireworks").click((event) => {
+    data("Fireworks");
+});
+
+$("#demolition").click((event) => {
+    data("Demolition");
+});
+
+module.exports = {};
+},{"./data":1}],4:[function(require,module,exports){
+"use strict";
+
+require("./events");
+
+},{"./events":3}]},{},[4]);

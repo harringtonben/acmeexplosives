@@ -32,7 +32,7 @@ const loadProductsJSON = () => {
     });
 };
 
-const productGetter = () => {
+const dataFetcher = () => {
     loadProductsJSON().then((productResults) => {
         let productObject;
         for (let i = 0; i < productResults.length; i++) {
@@ -48,13 +48,29 @@ const productGetter = () => {
             products.forEach((product) => {
                 categoryResults.forEach((category) => {
                         if (category.id === product.type) {
-                            category.name = product.category;
+                            product.category = category.name;
                         }
                 });
             });
             console.log("products with categories", products);
         });
+    }).then(() => {
+        loadTypesJSON().then((typeResults) => {
+            products.forEach((product) => {
+                typeResults.forEach((type) => {
+                    if (type.id === product.id) {
+                        product.type = type.name;
+                        product.typedescription = type.description;
+                    }
+                });
+            });
+            console.log("products with categories and types", products);
+        });
     });
 };
 
-module.exports = productGetter;
+const getProductArray = () => {
+    return products;
+};
+
+module.exports = {dataFetcher, getProductArray};
